@@ -1,12 +1,20 @@
 import React from "react";
-import { Card, Typography } from "antd";
+import { Card, message, Typography } from "antd";
 import { LoginForm } from "./LoginForm";
 import { validateCredentials } from "../../services/login";
+import { withLoader } from "../../components/Loader";
 
-export const Login = ({ onLoginSuccess }) => {
+const Login = ({ onLoginSuccess, startLoading, stopLoading }) => {
   const handleLogin = async ({ username, password }) => {
-    const { name } = await validateCredentials(username, password);
-    onLoginSuccess(name);
+    startLoading();
+    try {
+      const { name } = await validateCredentials(username, password);
+      onLoginSuccess(name);
+    } catch (e) {
+      message.error("Something went wrong please try again!");
+    } finally {
+      stopLoading();
+    }
   };
 
   return (
@@ -18,3 +26,5 @@ export const Login = ({ onLoginSuccess }) => {
     </div>
   );
 };
+
+export default withLoader(Login);

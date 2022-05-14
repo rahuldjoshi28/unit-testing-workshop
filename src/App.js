@@ -1,7 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import "./App.css";
-import { Login } from "./modules/login";
+import Login from "./modules/login";
 import { AuthProvider, useAuth } from "./modules/login/AuthContext";
 import { Header } from "./modules/header";
 

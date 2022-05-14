@@ -56,3 +56,10 @@
   font-weight: bold;
   font-size: 16px;
 }
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
