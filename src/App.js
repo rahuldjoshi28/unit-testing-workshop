@@ -3,6 +3,7 @@ import "antd/dist/antd.css";
 import "./App.css";
 import { Login } from "./modules/login";
 import { AuthProvider, useAuth } from "./modules/login/AuthContext";
+import { Header } from "./modules/header";
 
 const Container = () => {
   const { isLoggedIn, setLoginInfo } = useAuth();
@@ -11,7 +12,7 @@ const Container = () => {
     return <Login onLoginSuccess={setLoginInfo} />;
   }
 
-  return "You hae logged in successfully";
+  return <Header />;
 };
 
 function App() {

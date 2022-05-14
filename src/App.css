@@ -45,3 +45,14 @@
 .login-page .login-form {
   margin-top: 50px;
 }
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header-username {
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
