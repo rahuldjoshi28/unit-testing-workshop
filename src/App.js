@@ -4,6 +4,7 @@ import "./App.css";
 import Login from "./modules/login";
 import { AuthProvider, useAuth } from "./modules/login/AuthContext";
 import { Header } from "./modules/header";
+import BookMovieTicket from "./modules/booking";
 
 const Container = () => {
   const { isLoggedIn, setLoginInfo } = useAuth();
@@ -12,7 +13,12 @@ const Container = () => {
     return <Login onLoginSuccess={setLoginInfo} />;
   }
 
-  return <Header />;
+  return (
+    <div>
+      <Header />
+      <BookMovieTicket />
+    </div>
+  );
 };
 
 function App() {

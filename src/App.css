@@ -37,9 +37,12 @@
   }
 }
 
-.login-page {
+.container {
   width: 600px;
   margin: 100px auto;
+}
+
+.login-page {
 }
 
 .login-page .login-form {
@@ -62,4 +65,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.booking-form {
+  margin-top: 20px;
 }

@@ -1,11 +1,19 @@
-const createPromiseWithDelay = (data, timeout) => {
-  return new Promise((resolve) => {
+export const createPromiseWithDelay = (status, data, timeout) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve(data);
+      if (status === "resolve") {
+        resolve(data);
+        return;
+      }
+      reject(data);
     }, timeout);
   });
 };
 
 export function validateCredentials(userName, password) {
-  return createPromiseWithDelay({ valid: true, name: userName }, 2000);
+  return createPromiseWithDelay(
+    "resolve",
+    { valid: true, name: userName },
+    2000
+  );
 }

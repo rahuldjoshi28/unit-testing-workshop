@@ -19,8 +19,8 @@ export const withLoader = (Component) => {
     return (
       <Component
         {...props}
-        startLoading={startLoading}
-        stopLoading={stopLoading}
+        startLoader={startLoading}
+        stopLoader={stopLoading}
       />
     );
   };
