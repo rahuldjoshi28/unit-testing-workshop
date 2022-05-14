@@ -70,3 +70,11 @@
 .booking-form {
   margin-top: 20px;
 }
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}

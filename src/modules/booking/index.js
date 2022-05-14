@@ -1,16 +1,22 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, message, Typography } from "antd";
 import { bookTicket } from "../../services/movie";
 import { MovieBookingForm } from "./MovieBookingForm";
-import { withLoader } from "../../components/Loader";
+import { withLoader } from "../../hoc/Loader";
 
 function BookMovieTicket({ startLoader, stopLoader }) {
+  const navigate = useNavigate();
+
   const handleSubmit = async (formData) => {
     startLoader(true);
 
     try {
       const { seatNumber, ticketNumber } = await bookTicket(formData);
-      console.log({ seatNumber, ticketNumber });
+      navigate(
+        `/ticket-summary?seat-number=${seatNumber}&ticket-number=${ticketNumber}`,
+        { replace: true }
+      );
     } catch (e) {
       message.error("Something went wrong, please try again later!");
     } finally {
