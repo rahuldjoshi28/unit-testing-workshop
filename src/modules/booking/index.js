@@ -2,12 +2,11 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, message, Typography } from "antd";
 import { bookTicket } from "../../services/movie";
-import { MovieBookingForm } from "./MovieBookingForm";
+import MovieBookingForm from "./MovieBookingForm";
 import { withLoader } from "../../hoc/Loader";
 
 function BookMovieTicket({ startLoader, stopLoader }) {
   const navigate = useNavigate();
-
   const handleSubmit = async (formData) => {
     startLoader(true);
 

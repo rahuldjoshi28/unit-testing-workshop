@@ -28,7 +28,7 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <div className="App">
+        <div className="App" data-testid="root">
           <Routes>
             <Route path={"/ticket-summary"} element={<TicketSummary />} />
             <Route path={"/"} element={<Container />} />

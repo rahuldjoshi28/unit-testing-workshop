@@ -1,4 +1,4 @@
-import { createPromiseWithDelay } from "./login";
+import { fakeRequest } from "../utils";
 
 const MOVIES = [
   {
@@ -19,7 +19,7 @@ export function findMatchingMovies(searchKeyword) {
   let value = MOVIES.filter(({ name }) =>
     name.toLowerCase().includes(searchKeyword.toLowerCase())
   );
-  return createPromiseWithDelay("resolve", value, 100);
+  return fakeRequest("resolve", value, 100);
 }
 
 const randomNumber = (length) => {
@@ -38,7 +38,7 @@ const randomLetter = () => {
 };
 
 export function bookTicket(details) {
-  return createPromiseWithDelay(
+  return fakeRequest(
     "resolve",
     {
       ticketNumber: randomNumber(5),

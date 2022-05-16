@@ -6,7 +6,7 @@ const TIMINGS = ["10 am", "1 pm", "3 pm", "6 pm", "9 pm"];
 
 const { Option } = Select;
 
-export function MovieBookingForm({ onSubmit }) {
+export default function MovieBookingForm({ onSubmit }) {
   const [movie, setMovie] = useState(null);
 
   const handleSubmit = (formData) => onSubmit({ ...formData, movie });
@@ -19,7 +19,7 @@ export function MovieBookingForm({ onSubmit }) {
     >
       <Form.Item
         label="Select a movie"
-        name="name"
+        name="first-name"
         rules={[{ required: true, message: "Please input your name!" }]}
       >
         <MovieSelector onSelect={setMovie} selectedMovie={movie} />
@@ -27,7 +27,7 @@ export function MovieBookingForm({ onSubmit }) {
 
       <Form.Item
         label="Full Name"
-        name="name"
+        name="last-name"
         rules={[{ required: true, message: "Please input your name!" }]}
       >
         <Input />
