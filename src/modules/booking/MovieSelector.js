@@ -9,7 +9,6 @@ export function MovieSelector({ onSelect }) {
 
   const onMovieSearch = async (searchTerm) => {
     const newVar = await findMatchingMovies(searchTerm);
-    console.log({ newVar });
     setMatchingMovies(newVar);
   };
 

@@ -34,8 +34,7 @@ describe("Testing MovieSelector", () => {
 
     it("should onselect", async () => {
         setUp()
-        userEvent.click(screen.getByRole("combobox"))
-        await Promise.resolve()
+        userEvent.type(screen.getByRole("combobox"), "Radhe")
         userEvent.click(screen.getByText("K.G.F. Chapter 2"), undefined, { skipPointerEventsCheck: true })
         expect(onSelect).toHaveBeenCalledWith("K.G.F. Chapter 2", {
             label: "K.G.F. Chapter 2",
