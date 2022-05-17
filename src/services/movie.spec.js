@@ -1,15 +1,7 @@
-import { waitFor } from "@testing-library/react"
-import { findMatchingMovies } from "./movie"
+describe("findMatchingMovies", () => {
+  it.todo("should return matching movies");
 
+  it.todo("should return empty array if no movie matched");
 
-test("findMatchingMovies shpuld get called and return movies", async () => {
-    const response = await findMatchingMovies("K.G.F")
-    await waitFor(() => {
-        expect(response).toStrictEqual([
-            {
-                name: "K.G.F. Chapter 2",
-                id: "kgf_2",
-            }
-        ])
-    })
-})
+  it.todo("should match movies case independent");
+});

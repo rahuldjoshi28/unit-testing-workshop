@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card, message, Typography } from "antd";
-import { bookTicket } from "../../services/movie";
 import MovieBookingForm from "./MovieBookingForm";
 import { withLoader } from "../../hoc/Loader";
+import { bookTicket } from "../../services/bookTicket";
 
 function BookMovieTicket({ startLoader, stopLoader }) {
   const navigate = useNavigate();

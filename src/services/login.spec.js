@@ -1,12 +1,11 @@
-import { validateCredentials } from "./login"
-import * as utils from "../utils"
+import { validateCredentials } from "./login";
 
+jest.mock("../utils");
 
-const fakeRequest = jest.spyOn(utils, "fakeRequest")
+describe("validateCredentials", () => {
+  it.todo("should call fakeRequest with correct parameters");
 
-test('validateCredentials should get called and should return data', async () => {
-    fakeRequest.mockResolvedValueOnce("SUCCESS")
-    const response = await validateCredentials("::username::", "::password::")
-    expect(fakeRequest).toBeCalled()
-    expect(response).toBe("SUCCESS")
-})
+  it.todo("should return resolving promise if fakeRequest success");
+
+  it.todo("should return rejecting promise if fakeRequest failure");
+});
