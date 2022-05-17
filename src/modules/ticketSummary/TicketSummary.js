@@ -39,4 +39,5 @@ class TicketSummary extends React.Component {
   }
 }
 
+export { TicketSummary };
 export default withSearchParams(TicketSummary);

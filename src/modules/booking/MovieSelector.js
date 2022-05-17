@@ -14,7 +14,7 @@ export function MovieSelector({ onSelect }) {
 
   return (
     <Select
-      data-testId="movie-select"
+      data-testid="movie-select"
       onSelect={onSelect}
       onSearch={onMovieSearch}
       showSearch

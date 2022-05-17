@@ -17,17 +17,13 @@ export default function MovieBookingForm({ onSubmit }) {
       wrapperCol={{ span: 16 }}
       onFinish={handleSubmit}
     >
-      <Form.Item
-        label="Select a movie"
-        name="first-name"
-        rules={[{ required: true, message: "Please input your name!" }]}
-      >
+      <Form.Item label="Select a movie" name="movie-name">
         <MovieSelector onSelect={setMovie} selectedMovie={movie} />
       </Form.Item>
 
       <Form.Item
         label="Full Name"
-        name="last-name"
+        name="name"
         rules={[{ required: true, message: "Please input your name!" }]}
       >
         <Input />

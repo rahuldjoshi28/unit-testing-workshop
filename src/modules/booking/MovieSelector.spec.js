@@ -1,44 +1,39 @@
-import { render, screen } from "@testing-library/react"
-import { MovieSelector } from "./MovieSelector"
+import { render, screen } from "@testing-library/react";
+import { MovieSelector } from "./MovieSelector";
 import userEvent from "@testing-library/user-event";
+import { findMatchingMovies } from "../../services/movie";
+
+jest.mock("../../services/movie");
 
 describe("Testing MovieSelector", () => {
-    const onSelect = jest.fn()
+  const onSelect = jest.fn();
 
-    const MOVIES = [
-        {
-            name: "K.G.F. Chapter 2",
-            id: "kgf_2",
-        },
-        {
-            name: "Gangubai Kathiawadi",
-            id: "gangubai_kathiawadi",
-        },
-        {
-            name: "Radhe Shyam",
-            id: "radhe_shyam",
-        },
-    ];
+  const MOVIES = [
+    {
+      name: "::MOVIE_1::",
+      id: "movie1",
+    },
+    {
+      name: "::MOVIE_2::",
+      id: "movie2",
+    },
+  ];
 
-    jest.mock("../../services/movie", () => ({
-        findMatchingMovies: jest.fn(() => Promise.resolve(MOVIES))
-    }))
+  findMatchingMovies.mockReturnValue(MOVIES);
 
+  const setUp = (props) => render(<MovieSelector onSelect={onSelect} />);
 
-    const setUp = (props) => render(<MovieSelector onSelect={onSelect} />)
+  it("should render", () => {
+    setUp();
+    expect(screen.getByTestId("movie-select")).toBeInTheDocument();
+  });
 
-    it("should render", () => {
-        setUp()
-        expect(screen.getByTestId("movie-select")).toBeInTheDocument()
-    })
+  it("should select correct option", async () => {
+    setUp();
 
-    it("should onselect", async () => {
-        setUp()
-        userEvent.type(screen.getByRole("combobox"), "Radhe")
-        userEvent.click(screen.getByText("K.G.F. Chapter 2"), undefined, { skipPointerEventsCheck: true })
-        expect(onSelect).toHaveBeenCalledWith("K.G.F. Chapter 2", {
-            label: "K.G.F. Chapter 2",
-            value: "kgf_2",
-        })
-    })
-})
+    userEvent.click(screen.getByRole("combobox"));
+    userEvent.type(screen.getByRole("combobox"), "::MOVIE");
+    userEvent.click(await screen.findByText("::MOVIE_1::"));
+    expect(onSelect).toHaveBeenCalledWith("movie1", expect.anything());
+  });
+});
